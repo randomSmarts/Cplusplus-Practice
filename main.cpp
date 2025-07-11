@@ -5,52 +5,41 @@ Date: 7/10/25
 Instructor: Dave Harden
 File: main.cpp
 
-This program performs a basic arithmetic operation on two user-entered numbers.
-The user inputs two numbers and an operator (+, -, *, or /). Based on the operator,
-the program performs the operation and prints the result with two decimal places.
-If an invalid operator is entered, the program prints an error message.
+This program takes an integer input representing the number of years of school completed.
+Based on the input, it prints whether the person is in elementary school, middle school,
+high school, college, has had no school, or submitted an invalid response.
+The output is a simple classification string.
 */
 
 #include <iostream>
-#include <cmath>
 #include <iomanip>
 
 int main() {
-    double firstUserNumber;
-    double secondUserNumber;
-    char userOperator;
+    int yearsOfSchool;
+    constexpr int elementarySchoolEnd = 6;
+    constexpr int middleSchoolEnd = 8;
+    constexpr int highSchoolEnd = 12;
 
-    std::cout << "Enter first number: ";
-    std::cin >> firstUserNumber;
+    std::cout << "Enter number of years of school: ";
+    std::cin >> yearsOfSchool;
 
-    std::cout << "Enter an operator (+, -, *, or /): ";
-    std::cin >> userOperator;
-
-    std::cout << "Enter second number: ";
-    std::cin >> secondUserNumber;
-
-    std::cout << std::fixed << std::setprecision(2);
-
-    switch (userOperator) {
-        case '+':
-            std::cout << "The answer is " << firstUserNumber + secondUserNumber
-                << std::endl;
-            break;
-        case '-':
-            std::cout << "The answer is " << firstUserNumber - secondUserNumber
-                << std::endl;
-            break;
-        case '*':
-            std::cout << "The answer is " << firstUserNumber * secondUserNumber
-                << std::endl;
-            break;
-        case '/':
-            std::cout << "The answer is " << firstUserNumber / secondUserNumber
-                << std::endl;
-            break;
-        default:
-            std::cout << "Please re-run the program and enter a valid operator."
-                << std::endl;
+    if (yearsOfSchool < 0) {
+        std::cout << "years of school must be a non-negative integer" << std::endl;
+    }
+    else if (yearsOfSchool == 0) {
+        std::cout << "no school" << std::endl;
+    }
+    else if (yearsOfSchool <= elementarySchoolEnd) {
+        std::cout << "elementary school" << std::endl;
+    }
+    else if (yearsOfSchool <= middleSchoolEnd) {
+        std::cout << "middle school" << std::endl;
+    }
+    else if (yearsOfSchool <= highSchoolEnd) {
+        std::cout << "high school" << std::endl;
+    }
+    else {
+        std::cout << "college" << std::endl;
     }
 
     return 0;
