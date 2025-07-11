@@ -12,7 +12,6 @@ If an invalid operator is entered, the program prints an error message.
 */
 
 #include <iostream>
-#include <cmath>
 #include <iomanip>
 
 int main() {

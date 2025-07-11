@@ -14,11 +14,12 @@ The output is a simple classification string.
 #include <iostream>
 #include <iomanip>
 
+constexpr int ELEMENTARY_SCHOOL_END = 6;
+constexpr int MIDDLE_SCHOOL_END = 8;
+constexpr int HIGH_SCHOOL_END = 12;
+
 int main() {
     int yearsOfSchool;
-    constexpr int elementarySchoolEnd = 6;
-    constexpr int middleSchoolEnd = 8;
-    constexpr int highSchoolEnd = 12;
 
     std::cout << "Enter number of years of school: ";
     std::cin >> yearsOfSchool;
@@ -29,13 +30,13 @@ int main() {
     else if (yearsOfSchool == 0) {
         std::cout << "no school" << std::endl;
     }
-    else if (yearsOfSchool <= elementarySchoolEnd) {
+    else if (yearsOfSchool <= ELEMENTARY_SCHOOL_END) {
         std::cout << "elementary school" << std::endl;
     }
-    else if (yearsOfSchool <= middleSchoolEnd) {
+    else if (yearsOfSchool <= MIDDLE_SCHOOL_END) {
         std::cout << "middle school" << std::endl;
     }
-    else if (yearsOfSchool <= highSchoolEnd) {
+    else if (yearsOfSchool <= HIGH_SCHOOL_END) {
         std::cout << "high school" << std::endl;
     }
     else {
